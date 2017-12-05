@@ -1,0 +1,42 @@
+from tkinter import *
+
+
+def acesso():
+    print("Bem vindo")
+
+janela= Tk()
+
+menu= Menu(janela)
+janela.config(menu=menu)
+
+janela.geometry("300x300+100+100")
+subMenu= Menu(menu)
+
+menu.add_cascade(label= "Menu",menu=subMenu)
+subMenu.add_command(label="Help",command=acesso)
+subMenu.add_command(label="Creditos",command=acesso)
+
+subMenu.add_separator()
+
+subMenu.add_command(label= "Sair", command=acesso)
+
+editMenu= Menu(menu)
+
+menu.add_cascade(label="OpÃ§Ãµes", menu=editMenu)
+
+toolbar=Frame(janela, bg="blue")
+
+insertButt=Button(toolbar, text="Sair", command= acesso)
+insertButt.pack(side=LEFT,padx =2, pady=2)
+
+printButt=Button(toolbar,text="Iniciar o jogo",command=acesso)
+printButt.pack(side=BOTTOM, fill= X)
+toolbar.pack(side=TOP,fill=X)
+
+status=Label(janela, text="Funcionando...", bd=1, relief=SUNKEN,anchor= W)
+status.pack(side=BOTTOM, fill=X)
+photo=PhotoImage(file="teste2.gif")
+label=Label(janela, image=photo)
+label.pack()
+janela.mainloop()
+    
